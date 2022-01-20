@@ -32,7 +32,7 @@ export default class Dashboard2 extends Component {
     return (
       <div>
         <ContentHeader 
-          title='Dashboard'
+          title='Dashboard Without Redux'
           small='Version 2.0'
         />
         <Content>
