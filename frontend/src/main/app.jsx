@@ -1,4 +1,4 @@
-import '../common/template/dependencies';
+import '../common/dependencies';
 import React from "react";
 import Routes from './routes';
 
