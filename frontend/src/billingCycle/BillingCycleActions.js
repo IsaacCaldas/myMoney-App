@@ -4,7 +4,9 @@ import { reset as resetForm, initialize } from 'redux-form';
 import { showTabs, selectTab } from '../common/tab/tabActions';
 
 const URL = 'http://localhost:3005/api';
-const INITIAL_VALUES = {};
+const INITIAL_VALUES = {
+  credits: [{}]
+};
 
 export function getList(){
 
