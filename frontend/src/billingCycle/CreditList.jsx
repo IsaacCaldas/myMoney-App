@@ -3,10 +3,21 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import Grid from "../common/Layout/Grid";
-import { Field } from 'redux-form';
+import { Field, arrayInsert, arrayRemove } from 'redux-form';
 import Input from '../common/form/Input';
 
 class CreditList extends Component {
+
+  add(index, item = {}){
+    if(!this.props.readOnly){
+      this.props.arrayInsert('billingCycleForm', 'credits', index, item);
+    }
+  }
+  del(index){
+    if(!this.props.readOnly && this.props.list.length > 1){
+      this.props.arrayRemove('billingCycleForm', 'credits', index);
+    }
+  }
 
   renderRows(){
 
@@ -20,7 +31,17 @@ class CreditList extends Component {
         /></td>
         <td><Field name={`credits[${index}].value`} component={Input}
           placeholder='Report the value' readOnly={this.props.readOnly}/></td>
-        <td></td>
+        <td>
+          <button type='button' className="btn btn-success" onClick={() => this.add(index + 1)}>
+            <i className="fa fa-plus"></i>
+          </button>
+          <button type='button' className="btn btn-warning" onClick={() => this.add(index + 1, item)}>
+            <i className="fa fa-clone"></i>
+          </button>
+          <button type='button' className="btn btn-danger" onClick={() => this.del(index - 1)}>
+            <i className="fa fa-trash-o"></i>
+          </button>
+        </td>
       </tr>
     ));
   }
@@ -38,7 +59,7 @@ class CreditList extends Component {
               <tr>
                 <th>Name</th>
                 <th>Value</th>
-                <th>Actions</th>
+                <th className="table-actions">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -54,16 +75,12 @@ class CreditList extends Component {
   }
 
 }
-/*
-const mapStateToProps = state => ({
 
-});
 const mapDispatchToProps = dispatch => bindActionCreators({
-
-});
+  arrayInsert, arrayRemove
+}, dispatch);
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps)(CreditList);*/
+  null,
+  mapDispatchToProps)(CreditList);
 
-export default CreditList;
