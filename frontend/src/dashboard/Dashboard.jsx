@@ -35,7 +35,7 @@ class Dashboard extends Component {
               value={`R$ ${debt}`} text='Debts Total'></ValueBox>
 
             <ValueBox cols='12 4' color='blue' icon='money'
-              value={`R$ ${credit - debt}`} text='Consolidated Value'></ValueBox>
+              value={`R$ ${credit - debt}`} text='Your money total'></ValueBox>
           </Row>
           
         </Content>
