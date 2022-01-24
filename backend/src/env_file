@@ -1,0 +1,5 @@
+module.exports = {
+  authSecret: ''
+}
+
+// Rename to .env with a created key.
