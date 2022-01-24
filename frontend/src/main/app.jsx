@@ -1,6 +1,5 @@
 import '../common/dependencies';
 import React from "react";
-import Routes from './routes';
 
 import Header from '../common/template/Header'
 import SideBar from '../common/template/SideBar';
@@ -16,7 +15,7 @@ export default props => {
       <Header/>
       <SideBar/>
       <div className="content-wrapper">
-        <Routes/>
+        {props.children}
       </div>
       <Footer/>
       <Messages/>

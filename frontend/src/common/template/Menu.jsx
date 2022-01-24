@@ -8,11 +8,11 @@ export default props => {
 
     <ul className="sidebar-menu">
 
-      <MenuItem path='#/' icon="dashboard" label="dashboard"/>
+      <MenuItem path='/' icon="dashboard" label="dashboard"/>
 
       <MenuTree label='Cadastro' icon='edit'>
         <MenuItem 
-          path='#billingCycles'
+          path='billingCycles'
           label='Billing Cycles'
           icon='usd'
         ></MenuItem>
